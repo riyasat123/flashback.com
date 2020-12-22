@@ -1,0 +1,581 @@
+
+.mybody{
+	font-family: poppins;
+	background: rgb(219,226,226);
+}
+
+*{
+	text-decoration: none;
+}
+
+.active{
+	
+	color: black;
+}
+
+.btn{
+		border: none;
+		outline: none;
+		background-color: #ff8040;
+		color: white;
+		border-radius: 50px;	
+		text-decoration: none;	
+	     }
+	     
+.btn:hover{
+	
+		background: white;
+		border: 1px solid;
+		color: darkorange;
+		}
+
+	
+/*Carousel*/	
+
+.carousel-item {
+ 
+  min-height: 200px;
+}
+
+.carousel-item img {
+
+   height: 330px;
+    width: 100%;
+}
+
+.Capp:hover{
+ background: white;
+ border: 1px solid;
+ color: darkorange;
+		}
+
+.carousel-caption{
+	bottom: 70px;
+}
+.carousel-caption h5{
+	font-size: 30px;
+	text-transform: uppercase;
+	letter-specing: 2px;
+	margin-top: 25px;
+	font-weight: 900;
+	color: darkorange;
+	font-weight: bold;
+}
+.carousel-caption h4{
+	font-size: 20px;
+	margin: auto;
+	width: 60%;
+	line-height: 1.2;
+}
+.carousel-caption a{
+	text-transform: uppercase;
+	background: darkorange;
+	padding: 10px 30px;
+	display-inline: block;
+	color: #fff;
+	margin-top: 15px;
+	border-radius: 50px;
+}
+
+.card{
+     background: white;
+     border-radius: 10px;
+	 box-shadow: 12px 12px 22px grey;
+}
+
+.card-title{
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;	
+}
+
+.card-subtitle{
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 7px;
+}
+
+/* Navbar */
+
+.navbar-nav a{
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+
+.logout{
+	font-size: 18px;
+	text-decoration: none;
+}
+
+.navbar-brand{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.dropdown-menu a{
+	
+	font-size: 14px;
+	font-weight: bold;
+	color: black;
+}
+
+
+.navbar-collapse .dropdown-menu a{
+
+	font-weight: 540;
+}
+
+.navbar-collapse .dropdown-menu a:hover{
+
+	color: #fff;
+	background-color: orange;
+}
+
+
+.navbar-light .navbar-nav .nav-link{
+	color:#ff8040;
+}
+
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover{
+	color: black;
+}
+
+    
+/* MyAccountPage */
+
+ .gravity .theeDots{
+	
+	float: right;
+	color: black;
+	
+}
+
+.gravity .dropdown-menu a{
+	
+	font-size: 14px;
+	text-decoration: none;
+	
+}
+
+.gravity .dropdown-menu li{
+	
+	text-align: center;
+	
+}
+
+
+.textjustify{
+	
+  text-align: justify;
+  text-justify: inter-word;
+  text-indent: 15px;
+  word-spacing:-1px;
+}
+
+.textjustify::first-letter{
+	
+	text-transform: uppercase;
+}
+
+
+.profile {
+  margin: 20px 0;
+}
+
+.bodybg{
+	font-family: poppins;
+	background: rgb(219,226,226);
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 12px 12px 22px grey;
+}
+
+.profile-userpic img:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    background-image: url('/assets/images/DefaultProfilePic.jpg');
+}
+
+.profile-userpic img {
+ 
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  border-radius: 6px;
+  height: 100px;
+
+}
+
+img:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    width: 60px;
+    height: 50px;
+    background-image: url('/assets/images/DispayPic.jpg');
+}
+
+.editprofile img:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    background-image: url('/assets/images/DefaultProfilePic.jpg');
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .postbtn{
+			border: none;
+			outline: none;
+			height: 30px;
+			width: 70px;
+			background-color: #00b300;
+			color: white;
+			font-weight: 600;
+			border-radius: 3px;	
+			text-decoration: none;		
+	     }
+	     
+.profile-userbuttons .postbtn:hover{
+			background: white;
+			border: 1px solid;
+			color: #00b300;
+		}
+
+.profile-userbuttons .editbtn{
+			border: none;
+			outline: none;
+			height: 30px;
+			width: 70px;
+			background-color: #ff4040;
+			color: white;
+			font-weight: 600;
+			border-radius: 3px;	
+			text-decoration: none;		
+	     }
+	     
+.profile-userbuttons .editbtn:hover{
+			background: white;
+			border: 1px solid;
+			color: #ff4040;
+		}
+		
+.deletepost .postbtn{
+			border: none;
+			outline: none;
+			height: 30px;
+			width: 70px;
+			background-color: #00b300;
+			color: white;
+			font-weight: 600;
+			border-radius: 3px;	
+			text-decoration: none;		
+	     }
+	     
+.deletepost .postbtn:hover{
+			background: white;
+			border: 1px solid;
+			color: #00b300;
+		}
+
+.deletepost .editbtn{
+			border: none;
+			outline: none;
+			height: 30px;
+			width: 70px;
+			background-color: #ff4040;
+			color: white;
+			font-weight: 600;
+			border-radius: 3px;	
+			text-decoration: none;
+			margin-right:5px;		
+	     }
+	     
+.deletepost .editbtn:hover{
+			background: white;
+			border: 1px solid;
+			color: #ff4040;
+		}
+		
+	.deletepost	{
+		text-align: center;
+        margin-top: 10px;
+		}
+
+.delet-body{
+	
+	text-align: center;
+	 margin-top: 20px;
+}
+
+/* Profile Content */
+
+
+.profile-content .mypost {
+  background: black;
+  color: white;
+  font-weight:600;
+  text-align: left;
+  padding: 3px 0px 3px 10px;
+  border-radius: 4px;
+  box-shadow: 6px 6px 11px grey;
+}
+
+
+.profile-content .mainpost {
+	margin-top: 7px;
+	
+}
+
+/* editprofile  */
+
+.editprofile{
+   text-align: center;
+   background: #fff;
+   border-radius: 10px;
+   min-width: 7px;
+   box-shadow: 12px 12px 22px grey;
+}
+
+
+
+.editprofile img{
+  display: block;
+  margin: 0 auto;
+}
+
+
+.editprofile .btn1{
+	border: none;
+			outline: none;
+			height: 30px;
+			width: 70px;
+			background-color: #00b300;
+			color: white;
+			font-weight: 600;
+			border-radius: 3px;	
+        }
+
+.editprofile .btn1:hover{
+			background: white;
+			border: 1px solid;
+			color: #00b300;
+		}
+
+.editprofile input:hover{
+			box-shadow: 2px 4px 4px grey;
+		}
+ 
+.editprofile input{
+			height: 30px;
+			width: 50%;
+			border-radius: 6px;
+			border-width: 1px;
+			border-style:solid;	
+			margin-bottom: 4px;	
+			outline: none;	
+ } 
+ 
+
+/* AboutUs  */
+
+.feedback{
+
+	min-height: 300px;
+	min-width: 100%;
+	text-align: center;
+	background: black;
+	padding-right:0;
+    padding-left:0;
+
+}
+
+.founder{
+
+	min-height: 300px;
+	min-width: 100%;
+	text-align: center;
+	background: orange;
+	
+}
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.feedback-text{
+	font-weight: bold;
+	color: #ff8040;
+}
+
+.feedback-inputtext{
+	border-radius: 4px;
+	width: 250px;
+	height: 40px;
+	border-color: #ff8040;
+}
+
+.feedback-inputtext:hover{
+	border-radius: 4px;
+	width: 300px;
+	height: 40px;
+	border-color: #ff8040;
+
+}
+
+.about-text{
+	font-family: italic;
+	font-weight: 600;
+}
+
+.about-text p{
+	font-style: italic;
+	font-weight: 600;
+	margin-top:50px;
+	line-height: normal;
+}
+
+
+.about-img{
+	height: 200px;
+	width: 200px;	
+	display: block;
+    margin: 0 auto;
+}
+
+.about-img img{
+
+        height: 150px;
+	    width: 200px;
+	    border-radius: 10px;
+	    margin-top:10px;
+	    box-shadow: 6px 6px 11px grey;
+	    	   
+}
+
+.fb-btn{
+
+			border: none;
+			outline: none;
+			height: 40px;
+			width: 80px;
+			background-color: #ff8040;
+			color: white;
+			border-radius: 4px;
+			font-weight: bold;			
+	     }
+	     
+	.fb-btn:hover{
+			background: white;
+			border: 1px solid;
+			color: #ff8040;
+	
+}
+
+
+/* StoryWriting  */
+
+.summary textarea, .story textarea{
+			
+			border-radius: 15px;	
+			 display: block;	
+}
+
+
+
+.story textarea:hover, .summary textarea:hover, .custom-select:hover{
+	
+	box-shadow: 4px 8px 8px grey;
+}
+
+.btn2{
+			border: none;
+			outline: none;
+			height: 40px;
+			width: 100%;
+			background-color: #ff8040;
+			color: white;
+			border-radius: 4px;
+			font-weight: bold;
+			margin-top: 15px;
+			margin-bottom: 25px;		
+	     }
+	
+		
+.btn2:hover{
+			background: white;
+			border: 1px solid;
+			color: #ff8040;
+			box-shadow: 2px 2px 2px grey;
+		}
+
+ textarea:focus, textarea:focus{
+        outline: none;
+    }
+
+.custom-select{
+  display: block;
+  max-width: 100px;
+  min-width: 180px;
+  height: 30px;
+  background-color: #fff;
+  border: 0px;
+  border-radius: 4px;
+  }
+  
+ option:hover{
+  	
+  	background-color: #ff8040;
+  	
+  }
+  
+
+
+

@@ -1,0 +1,91 @@
+
+*{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	 }
+	 .mybody{
+	 		background: rgb(219,226,226);
+	     }
+	     
+	     .loginError{
+	     	height: 30px;
+			width: 100%;
+			text-align: center;
+			font-weight: 500;
+			color: red ;
+			
+	     }
+	     
+	      .otppagebody{
+	 		background-image: url('/assets/images/aboutUs/otp.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+	     }
+	     
+	      .forgotpass{
+	 		background-image: url('/assets/images/aboutUs/fgpass.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+	     }
+	     
+	      .updatepass{
+	 		background-image: url('/assets/images/aboutUs/resetpass.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+	     }
+	     
+    .row{
+	     	background: white;
+	     	border-radius: 30px;
+	     	box-shadow: 12px 12px 22px grey;		
+	    }
+	    img{
+	    		border-top-left-radius: 30px;
+	    		border-bottom-left-radius: 30px;
+	       }
+	.btn1{
+			border: none;
+			outline: none;
+			height: 40px;
+			width: 100%;
+			background-color: #ff8040;
+			color: white;
+			border-radius: 4px;
+			font-weight: bold;			
+	     }
+	.btn1:hover{
+			background: white;
+			border: 1px solid;
+			color: #ff8040;
+			box-shadow: 2px 2px 2px grey;
+		}
+		
+		input:hover{
+			box-shadow: 2px 4px 4px grey;
+		}
+ 
+     input{
+			height: 40px;
+			width: 100%;
+			border-radius: 6px;
+			border-width: 1px;
+			border-style:solid;			
+ }
+ 
+ 
+      input:focus, textarea:focus, select:focus{
+        outline: none;
+    }
+    
+		
+		.ErrorValidation{
+	
+	 color:red;
+	 font-style: italic;
+	 margin-top: 0px;
+	 fotnt-size: 1px;
+ }
