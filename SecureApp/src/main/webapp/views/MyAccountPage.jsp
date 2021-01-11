@@ -66,7 +66,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
-                <img alt="" src="${images}/${GetSetGo.userID}/${GetSetGo.userID}.jpg" />
+                <img alt="" src="${images}/${GetSetGo.userID}/${GetSetGo.userID}.jpg" height = "50" width = "60"/>
                <span class="card-title">${GetSetGo.userID}</span><br>
                <span class="card-subtitle text-muted"><b>${GetSetGo.category}</b></span>
         </h5>
