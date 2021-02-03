@@ -14,8 +14,22 @@ public class GetSetGo {
 	private String Category;
 	private String Summary;
 	private String Story;
-	
+	private String Likecount;
+	private String Commentcount;
 
+	
+	public String getCommentcount() {
+		return Commentcount;
+	}
+	public void setCommentcount(String commentcount) {
+		Commentcount = commentcount;
+	}
+	public String getLikecount() {
+		return Likecount;
+	}
+	public void setLikecount(String likecount) {
+		Likecount = likecount;
+	}
 	public String getSummary() {
 		return Summary;
 	}
@@ -48,9 +62,10 @@ public class GetSetGo {
 	}
 	@Override
 	public String toString() {
-		return "GetSetGo [UserID=" + UserID + ", Category=" + Category + ", Story=" + Story + "]";
+		return "GetSetGo [ID=" + ID + ", UserID=" + UserID + ", Category=" + Category + ", Summary=" + Summary
+				+ ", Story=" + Story + ", Likecount=" + Likecount + ", Commentcount=" + Commentcount + "]";
 	}
-		
+	
 			
 }
 

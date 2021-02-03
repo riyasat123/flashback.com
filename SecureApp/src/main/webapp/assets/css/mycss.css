@@ -29,6 +29,14 @@
 		color: darkorange;
 		}
 
+.btnLike{
+		border: none;
+		outline: none;
+		background: white;
+		color: darkorange;
+		border-radius: 50px;
+		text-decoration: none;	
+		}
 	
 /*Carousel*/	
 
@@ -576,6 +584,22 @@ img:before {
   	
   }
   
+  
+  
+/*  comment */
 
+.commentStyle {
+	border-radius: 10px;
+	height: 35px;
+	width: 315px;
+	outline: none;
+	border: 1px solid;
+}
 
+.commentStyle:hover {
+	box-shadow: 2px 2px 2px grey;
+}
 
+.commentFooter{
+	position: static;
+}

@@ -3,6 +3,7 @@ package com.telusko.secureapp;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,9 +13,8 @@ import java.util.List;
 import java.util.Random;
 
 import javax.mail.MessagingException;
-import javax.transaction.Transactional;
+import javax.servlet.ServletException;
 
-import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -24,18 +24,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
 public class HomeController {
-	
+
 	@Autowired
 	private UserRepo repo;
 	
 	@Autowired
 	private PostRepo postrepo;
+	
+	@Autowired
+	private LikeRepo dblike;
+	
+	@Autowired
+	private CommentRepo dbcomment;
 	
 	@Autowired
 	private BCryptPasswordEncoder bcrpt;
@@ -46,10 +53,27 @@ public class HomeController {
 	@Autowired
 	private MyUser superID;
 	
+	@Autowired
+	private LikeEntity like;
+	
+	@Autowired
+	private CommentEntity comments;
+
 		
 	@RequestMapping(value = {"/","/home"})
 	public String home(ModelMap map){
+		
+		 postrepo.ZeroCount();
+		 
+		 List<String> lcg = (List<String>) dblike.LikeCountGroup();
+		 for(String i : lcg){			 
+			 postrepo.TcountSet(i,dblike.Findcount(i));
+		 }
+		 
+		 map.addAttribute("CUserLike",dblike.findByUserID(SecurityContextHolder.getContext().getAuthentication().getName()));
 		 map.addAttribute("post",postrepo.findAllByOrderByIDDesc());
+		 map.addAttribute("comment",dbcomment.CommentsDisplay());
+		 map.addAttribute("activeUser",SecurityContextHolder.getContext().getAuthentication().getName());
 		 map.addAttribute("home",true);
 		 map.addAttribute("title","home Page");
 		 return "MasterPage";
@@ -83,7 +107,7 @@ public class HomeController {
 		 superID.setUsername(myuser.getUsername());
 		 Random r = new Random();
 		 int random= r.nextInt(8999)+1000;
-		// email.send(myuser.getEmail(),"Password Reset","OTP: "+random);
+		 //email.send(myuser.getEmail(),"Password Reset","OTP: "+random);
 		 mp.addAttribute("otp", random);
 		 return "OTPpage";
 		 }
@@ -126,7 +150,7 @@ public class HomeController {
 	
 	
 	@RequestMapping("/SignIn/RegisterOTP")
-	public String home4(MyUser user, ModelMap mp) {
+	public String home4(MyUser user, ModelMap mp) throws MessagingException{
 		MyUser Use = repo.findByUsername(user.getUsername());
 		if(Use == null) {
 		String bcrptPass = bcrpt.encode(user.getPassword());
@@ -134,7 +158,7 @@ public class HomeController {
 		superID = user;
 		Random r = new Random();
 		int random= r.nextInt(8999)+1000;
-		// email.send(user.getEmail(),"User Confirmation ","OTP: "+random);
+	    //email.send(user.getEmail(),"User Confirmation ","OTP: "+random);
 		mp.addAttribute("otp", random);
 		return "SignInOTP";
 		}
@@ -159,8 +183,9 @@ public class HomeController {
 	public ModelAndView MyAccountPage() {
 		
 		ModelAndView mb = new ModelAndView("MasterPage");
+		mb.addObject("comment",dbcomment.CommentsDisplay());
 		mb.addObject("post",postrepo.findByUserID(SecurityContextHolder.getContext().getAuthentication().getName()));
-		mb.addObject("UserID",SecurityContextHolder.getContext().getAuthentication().getName());
+		mb.addObject("activeUser",SecurityContextHolder.getContext().getAuthentication().getName());
 		mb.addObject("name",repo.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
 		mb.addObject("account",true);
 		mb.addObject("title","MyAccount Page");
@@ -252,6 +277,53 @@ public class HomeController {
 		 return "MasterPage";
 	}	
 	
+	@RequestMapping("/likedServlet")
+	@ResponseBody
+	public void Likee(@RequestParam("uid") String uid, @RequestParam("pid") String pid) throws ServletException, IOException {
+	
+	SimpleDateFormat dt = new SimpleDateFormat("yyyyMMddHHmmssms");
+	Date date=new Date();
+	
+	int cnt = dblike.findByLike(uid, pid);
+	 if(cnt == 0) {	 
+	 like.setLikeTime(dt.format(date)+SecurityContextHolder.getContext().getAuthentication().getName());
+	 like.setUserID(uid);
+	 like.setPostID(pid);
+	 dblike.save(like);	
+	 }else {
+		 dblike.LikeRemove(uid, pid);
+	    }
+	     
+	}
+	
+
+	@RequestMapping("/commentServlet")
+	@ResponseBody
+	public void Commentee(@RequestParam("uid") String uid, @RequestParam("pid") String pid, @RequestParam("comment") String comment) throws ServletException, IOException {
+	
+	SimpleDateFormat dt = new SimpleDateFormat("yyyyMMddHHmmssms");
+	Date date=new Date();
+	 
+	 comments.setCommentTime(dt.format(date)+SecurityContextHolder.getContext().getAuthentication().getName());
+	 comments.setUserID(uid);
+	 comments.setPostID(pid);
+	 comments.setPostcomment(comment);
+	 dbcomment.save(comments);	
+	     
+	}
+	
+	
+	@RequestMapping("/displaycommentServlet")
+	@ResponseBody
+	public Object[] Display() {
+
+			 
+			List<CommentEntity> list =dbcomment.CommentsDisplay(); 
+			System.out.println(list);
+			Object[] objArray = list.toArray();
+		       return objArray;		 
+		     
+		}
 	
 	
 }

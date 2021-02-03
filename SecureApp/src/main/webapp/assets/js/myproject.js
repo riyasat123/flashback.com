@@ -1,5 +1,21 @@
 
+
 //---- Active Menu -----
+//window.onload = function() {
+//	var a = document.title;
+//	if(a == "aboutUs Page"){
+//	document.getElementById("idbount").style.color = "black";
+//	}
+//	else if(a == "MyAccount Page" || a == "Edit Profile Page" || a == "Flashback Writting Page"){
+//		document.getElementById("idmyaccount").style.color = "black";
+//	}
+//	else if(a == "home Page"){
+//		document.getElementById("idhome").style.color = "black";		
+//	}
+//	else if(a == "love" || a == "Horror" || a == "Success" || a == "Motivational" || a == "Secrets" || a == "Lust Story" || a == "Depression" || a == "Others"){
+//		document.getElementById("navbarDropdown").style.color = "black";
+//	}
+//}
 window.onload = function() {
 	var a = document.title;
 	if(a == "aboutUs Page"){
@@ -149,6 +165,106 @@ function updatePassword(form) {
 }
 
 
-   
+  // like function
+
+function likedfun(uid,pid){
+	console.log(uid+","+pid);
+	var iii = "a"+pid;
+	console.log(iii);
+	var stc = document.getElementById(iii).style.color;
+	var count = parseInt(document.getElementById(pid).innerHTML);
+	if(stc != "blue"){
+	document.getElementById(pid).innerHTML = count + 1;
+	document.getElementById(iii).style.color = "blue";
+	console.log(count +1 );
+	}else{
+		document.getElementById(pid).innerHTML = count - 1;
+		document.getElementById(iii).style.color = "darkorange";
+		console.log(count -1 );
+	}
+	
+	var d={
+		uid: uid,
+		pid: pid,
+		operation: 'like'
+	}
+	
+	$.ajax({
+		type:'POST',
+		url: "likedServlet",
+		data: d,
+		success: function(data){
+			$('#like-section').html(data)
+		},
+		error: function (jqXHR, textStatus, errorThrown){
+			console.log(data)
+		}
+	})
+	
+}
+
+
+
+// Comment function
+
+function commentfun(uid,pid){
+	console.log("comment"+uid+","+pid);
+	var iii = "b"+pid;
+	var jjj = "c"+pid;
+	var comment = document.getElementById(iii).value;
+	console.log(iii);
+	
+	var d={
+		uid: uid,
+		pid: pid,
+		comment: comment,
+		operation: 'comment'
+	}
+	
+	$.ajax({
+		type:'POST',
+		url: "commentServlet",
+		data: d,
+		success: function(data){
+			console.log(data[3].postID)
+		},
+		error: function (jqXHR, textStatus, errorThrown){
+			//console.log(data)
+		}
+	})
+	
+}
+
+
+//Display Comment function
+
+//function displaycommentfun(pid){
+//	var u = "u"+pid;
+//	var c = "c"+pid;
+//	
+//	var d={
+//		pid: pid
+//	}
+//	
+//	$.ajax({
+//		type:'POST',
+//		url: "displaycommentServlet",
+//		data: d,
+//		success: function(data){
+//			console.log(data)
+//			for(var i=0; i<data.length; i++){
+//		         console.log(data);
+//				document.getElementById(i).innerHTML = data[i].commentTime ;
+//				
+//				//document.getElementById().innerHTML="commentuser clicked";
+//				//document.getElementById("like-section").innerHTML="like-section clicked";
+//			}
+//		},
+//		error: function (jqXHR, textStatus, errorThrown){
+//			console.log(data)
+//		}
+//	})
+//	
+//}
    
    
